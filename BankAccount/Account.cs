@@ -38,6 +38,11 @@ namespace BankAccount
         
         public double Deposit(double amount)
         {
+            if(amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException($"The {nameof(amount)} must be more than 0");
+            }
+
             Balance += amount;
             return Balance;
         }
@@ -48,9 +53,16 @@ namespace BankAccount
         /// <param name="amount">The positive amount of money to be taken from the balance.</param>
         
 
-        public void Withdraw(double amount)
+        public double Withdraw(double amount)
         { 
-            throw new NotImplementedException(); 
+            if(amount >= Balance ) 
+            {
+                throw new ArgumentOutOfRangeException($"The {nameof(amount)} must be less than the {Balance}");
+            }
+
+
+            Balance -= amount;
+            return Balance;
         }
     }
 }
