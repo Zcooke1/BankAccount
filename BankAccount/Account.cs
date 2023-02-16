@@ -36,9 +36,10 @@ namespace BankAccount
         /// </summary>
         /// <param name="amount">The positive amount to deposit</param>
         
-        public void Deposit(double amount)
+        public double Deposit(double amount)
         {
-            throw new NotImplementedException();
+            Balance += amount;
+            return Balance;
         }
 
         /// <summary>
