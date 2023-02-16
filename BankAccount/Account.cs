@@ -55,9 +55,14 @@ namespace BankAccount
 
         public double Withdraw(double amount)
         { 
-            if(amount >= Balance ) 
+            if(amount >= Balance) 
             {
                 throw new ArgumentOutOfRangeException($"The {nameof(amount)} must be less than the {Balance}");
+            }
+
+            if(amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException($"The {nameof(amount)} must be greater than 0");
             }
 
 
